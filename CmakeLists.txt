@@ -1,0 +1,33 @@
+# 版本号限定 可选
+cmake_minimum_required(VERSION 3.0)
+# 项目名称
+project(LW)
+
+# 文件复制
+file(COPY lib/glfw3.dll DESTINATION ./)
+
+# 字体文件
+file(COPY resource DESTINATION ./) #update1. 新加的资源操作
+
+# 源码
+aux_source_directory(src/ SOURCE)
+
+# 设置包含目录
+set(DIR_INCLUDES ${PROJECT_SOURCE_DIR}/include) #update2. 这里创建一个变量，包含目录
+include_directories(${DIR_INCLUDES}) #update3. 包含目录设置
+
+# 可执行程序
+add_executable(${PROJECT_NAME} ${SOURCE})
+
+# 设置需要的链接库
+link_directories(${PROJECT_SOURCE_DIR}/lib)
+## Imgui update4.0 添加静态链接库
+add_library(imgui STATIC
+        ${DIR_INCLUDES}/imgui/imgui.cpp
+        ${DIR_INCLUDES}/imgui/imgui_impl_glfw.cpp
+        ${DIR_INCLUDES}/imgui/imgui_impl_opengl3.cpp
+        ${DIR_INCLUDES}/imgui/imgui_draw.cpp
+        ${DIR_INCLUDES}/imgui/imgui_demo.cpp
+        ${DIR_INCLUDES}/imgui/imgui_tables.cpp
+        ${DIR_INCLUDES}/imgui/imgui_widgets.cpp)
+target_link_libraries(${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/lib/glfw3.lib imgui) #update5.0 添加imgui库
