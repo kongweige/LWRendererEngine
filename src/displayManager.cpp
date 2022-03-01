@@ -1,4 +1,4 @@
-#include "glad/glad.h"
+ï»¿#include "glad/glad.h"
 #include "controller/displayManager.h"
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_glfw.h"
@@ -139,7 +139,7 @@ bool DisplayManager::createImGuiContext()
     return false;
   }  
   
-  // ½«imguiÇ¶Èëµ½glfwÖÐ
+  // å°†imguiåµŒå…¥åˆ°glfwä¸­
   ImGui_ImplGlfw_InitForOpenGL(window, true);
   ImGui_ImplOpenGL3_Init(glsl_version);
 

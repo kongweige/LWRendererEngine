@@ -1,4 +1,4 @@
-#ifndef ENGINE_H
+ï»¿#ifndef ENGINE_H
 #define ENGINE_H
 
 #include "controller/displayManager.h"
@@ -11,14 +11,14 @@ struct Engine
   Engine();
   ~Engine();
 
-  //ÓÃÓÚ¿ØÖÆÆô¶¯µÄË³Ğò
+  //ç”¨äºæ§åˆ¶å¯åŠ¨çš„é¡ºåº
   bool startUp();
   void shutDown();
 
-  //°üº¬ËùÓĞÂß¼­ºÍÖ÷Ó¦ÓÃ³ÌĞòÑ­»·
+  //åŒ…å«æ‰€æœ‰é€»è¾‘å’Œä¸»åº”ç”¨ç¨‹åºå¾ªç¯
   void run();
 
-  //Ã¿¸ö×ÓÏµÍ³µÄÊµÀı
+  //æ¯ä¸ªå­ç³»ç»Ÿçš„å®ä¾‹
   DisplayManager gDisplayManager;
   InputManager gInputManager;
   SceneManager gSceneManager;

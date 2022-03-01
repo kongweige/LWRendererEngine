@@ -1,4 +1,4 @@
-#include "controller/engine.h"
+ï»¿#include "controller/engine.h"
 #include "imgui/imgui.h"
 
 #include <stdio.h>
@@ -13,14 +13,14 @@ bool Engine::startUp()
   // Initial time
   unsigned int start = glfwGetTime();
 
-  // ³õÊ¼»¯glfwºÍopenglÏà¹ØµÄËùÓÐ
+  // initial all glfw and opengl related
   if (!gDisplayManager.startUp())
   {
     printf("Failed to initialize window display manager.\n");
     return false;
   }
   
-  //initial scene manger and loads default scene
+  // initial scene manger and loads default scene
   if (!gSceneManager.startUp())
   {
     printf("Failed to initialize scene manager.\n");
@@ -57,6 +57,6 @@ void Engine::run()
 void renderUI() 
 {
   bool bShowDemoWindow = true;
-  // ÏÔÊ¾ImGui×Ô´øµÄdemo window
+  // æ˜¾ç¤ºImGuiè‡ªå¸¦çš„demo window
   ImGui::ShowDemoWindow(&bShowDemoWindow);
 }

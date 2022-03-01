@@ -1,4 +1,4 @@
-
+﻿
 class InputManager
 {
 public:

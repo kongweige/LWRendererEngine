@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include "nlohmann/json.hpp"
 
 using json = nlohmann::json;
@@ -6,15 +6,24 @@ using json = nlohmann::json;
 class Scene
 {
 public:
-  //½«³¡¾°Êı¾İ¹¹½¨µ½jsonÎÄ¼şÖĞ
+  //å°†åœºæ™¯æ•°æ®æ„å»ºåˆ°jsonæ–‡ä»¶ä¸­
   Scene(const std::string& sceneFolder);
   ~Scene();
 
-public:
-  //³¡¾°¼ÓÔØ×´Ì¬
+  //åœºæ™¯åŠ è½½çŠ¶æ€
   bool loadingError;
 
 private:
+  //åœºæ™¯åŠ è½½å’Œåœ°å›¾ç”Ÿæˆï¼Œä½†å¹¶æœªå†™åˆ°å†…å­˜ä¸­
+  bool loadContent();
+  void loadCamera(const json& sceneConfigJson);
+  void loadSceneModels(const json& sceneConfigJson);
+  void loadSkyBox(const json& sceneConfigJson);
+  void loadLights(const json& sceneConfigJson);
+  void generateEnvironmentMaps();
+
+private:
+  std::string sceneID;
 
 
 };

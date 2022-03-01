@@ -1,4 +1,4 @@
-#include "controller/sceneManager.h"
+ï»¿#include "controller/sceneManager.h"
 
 SceneManager::SceneManager()
 {
@@ -9,7 +9,7 @@ SceneManager::~SceneManager()
 
 }
 
-// Æô¶¯²¢¼ÓÔØÄ¬ÈÏ³¡¾°£¬Èç¹û³öÏÖÈÎºÎÔ­ÒòÃ»ÓÐ¼ÓÔØ³É¹¦»áÖ±½ÓÍË³ö
+// å¯åŠ¨å¹¶åŠ è½½é»˜è®¤åœºæ™¯ï¼Œå¦‚æžœæœªåŠ è½½æˆåŠŸä¼šç›´æŽ¥é€€å‡º
 bool SceneManager::startUp()
 {
   currentSceneID = "Sponza";
@@ -26,9 +26,9 @@ void SceneManager::shutDown()
   delete currentScene;
 }
 
-//Ê¹ÓÃ¸ø¶¨µÄID¼ÓÔØ³¡¾°¡£Èç¹û³¡¾°Îª¿Õ£¬½«ËµÃ÷Î´³É¹¦ÔÚ¼ÓÔØÔçÆÚ¾ÍÍË³ö
+//ä½¿ç”¨ç»™å®šçš„IDåŠ è½½åœºæ™¯ã€‚å¦‚æžœåœºæ™¯ä¸ºç©ºï¼Œå°†è¯´æ˜ŽæœªæˆåŠŸåœ¨åŠ è½½æ—©æœŸå°±é€€å‡º
 bool SceneManager::loadScene(std::string sceneID)
 {
   currentScene = new Scene(sceneID);
-  return currentScene->loadingError;
+  return !currentScene->loadingError;
 }

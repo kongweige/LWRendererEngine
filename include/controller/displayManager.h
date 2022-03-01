@@ -1,4 +1,4 @@
-#ifndef DISPLAY_MANAGER_H
+ï»¿#ifndef DISPLAY_MANAGER_H
 #define DISPLAY_MANAGER_H
 
 #include <GLFW/glfw3.h>
@@ -33,7 +33,7 @@ private:
   bool createGLContext();
   bool createImGuiContext();
 
-  // glfwµÄÉÏÏÂÎÄ
+  // glfwçš„ä¸Šä¸‹æ–‡
   GLFWwindow* window;
 };
 #endif // DISPLAY_MANAGER_H
