@@ -25,5 +25,15 @@ bool FLOAD::checkFileValidity(const std::string& filePath) {
   }
 }
 
+std::string FLOAD::getFileExtension(const std::string& filePath)
+{
+  size_t indexLocation = filePath.rfind('.', filePath.length());
+  if (indexLocation != std::string::npos)
+  {
+    return filePath.substr(indexLocation + 1, filePath.length() - indexLocation);
+  }
+  return "";
+}
+
 
 

@@ -1,0 +1,13 @@
+﻿  mesh.cpp
+  engine.cpp
+C:\github\LWRenderer\src\engine.cpp(14,22): warning C4244: “初始化”: 从“double”转换到“unsigned int”，可能丢失数据
+C:\github\LWRenderer\src\engine.cpp(31,23): warning C4244: “初始化”: 从“double”转换到“unsigned int”，可能丢失数据
+  fileManager.cpp
+  main.cpp
+  model.cpp
+  scene.cpp
+  sceneManager.cpp
+  正在生成代码...
+C:\github\LWRenderer\src\scene.cpp(70): warning C4715: “Scene::loadContent”: 不是所有的控件路径都返回值
+LINK : warning LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+  LW.vcxproj -> C:\github\LWRenderer\build\Debug\LW.exe

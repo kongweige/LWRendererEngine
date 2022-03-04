@@ -1,5 +1,9 @@
 ﻿#include <iostream>
+#include "glm/glm.hpp"
 #include "nlohmann/json.hpp"
+
+#include "controller/camera.h"
+#include "controller/model.h"
 
 using json = nlohmann::json;
 
@@ -13,6 +17,9 @@ public:
   //场景加载状态
   bool loadingError;
 
+  //用于初始Camera的构造函数
+  Camera* mainCamera;
+
 private:
   //场景加载和地图生成，但并未写到内存中
   bool loadContent();
@@ -24,6 +31,10 @@ private:
 
 private:
   std::string sceneID;
+
+  //Contains the models that remain after frustrum culling which is TB done
+  std::vector<Model*> visibleModels;
+  std::vector<Model*> modelsInScene;
 
 
 };

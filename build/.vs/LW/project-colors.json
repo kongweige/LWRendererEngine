@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "杂项文件",
+      "ColorIndex": -1
+    },
+    "2b180acd-4997-3deb-b734-24cf2f9ff9e4": {
+      "ProjectGuid": "2b180acd-4997-3deb-b734-24cf2f9ff9e4",
+      "DisplayName": "LW",
+      "ColorIndex": 0
+    },
+    "612cf0a7-e90a-3a3d-a7db-ec6b5c6ecdcb": {
+      "ProjectGuid": "612cf0a7-e90a-3a3d-a7db-ec6b5c6ecdcb",
+      "DisplayName": "imgui",
+      "ColorIndex": 1
+    },
+    "26aa4d3c-1ff2-3cd6-b7a7-a514fc8482e2": {
+      "ProjectGuid": "26aa4d3c-1ff2-3cd6-b7a7-a514fc8482e2",
+      "DisplayName": "LW",
+      "ColorIndex": 2
+    },
+    "6d030f8d-811f-35c2-9eb9-c644c66495f1": {
+      "ProjectGuid": "6d030f8d-811f-35c2-9eb9-c644c66495f1",
+      "DisplayName": "imgui",
+      "ColorIndex": 3
+    },
+    "5e742041-002f-3315-93f9-5229f52b073b": {
+      "ProjectGuid": "5e742041-002f-3315-93f9-5229f52b073b",
+      "DisplayName": "ALL_BUILD",
+      "ColorIndex": 4
+    }
+  },
+  "NextColorIndex": 5
+}

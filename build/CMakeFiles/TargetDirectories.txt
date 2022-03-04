@@ -1,0 +1,5 @@
+C:/github/LWRenderer/build/CMakeFiles/LW.dir
+C:/github/LWRenderer/build/CMakeFiles/imgui.dir
+C:/github/LWRenderer/build/CMakeFiles/glm.dir
+C:/github/LWRenderer/build/CMakeFiles/ALL_BUILD.dir
+C:/github/LWRenderer/build/CMakeFiles/ZERO_CHECK.dir
