@@ -6,6 +6,9 @@
 struct Texture
 {
 
+  void loadTexture(const std::string& filePath, bool sRGB);
+
+  //纹理未初始化时id为0
   unsigned int textureID = 0;
   std::string type, path;
 };

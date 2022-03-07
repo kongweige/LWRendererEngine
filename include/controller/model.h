@@ -38,6 +38,7 @@ struct Model
   //模型处理和加载功能
   void processNode(aiNode* node, const aiScene* scene);
   Mesh processMesh(aiMesh* mesh, const aiScene* scene);
+  std::vector<unsigned int> processTextures(const aiMaterial* material);
 
   //MVP中的 model，将局部坐标变换到世界坐标
   bool IBL;
@@ -45,7 +46,7 @@ struct Model
   std::vector<Mesh> meshes;
 
   //纹理优化，避免纹理重复加载
-  std::unordered_map<std::string, Texture>texttureAtlas;
+  std::unordered_map<std::string, Texture>textureAtlas;
   std::string directory, fileExtension;
 };
 

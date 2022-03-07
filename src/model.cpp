@@ -28,8 +28,11 @@ void Model::processNode(aiNode* node, const aiScene* scene)
     meshes.push_back(processMesh(mesh,scene));
   }
 
-
-
+  //递归处理所有子节点
+  for (unsigned int i = 0; i < node->mNumChildren; i++) 
+  {
+    processNode(node->mChildren[i], scene);
+  }
 }
 
 //获取所有的顶点数据，获取它们的网格索引，并获取相关的材质数据
@@ -92,3 +95,58 @@ Mesh Model::processMesh(aiMesh* mesh, const aiScene* scene)
   return Mesh(vertices, indices, textures);
 
 }
+
+//获取纹理位置，加载并生成纹理，将纹理ID存储到vector中
+std::vector<unsigned int> Model::processTextures(const aiMaterial* material)
+{
+  std::vector<unsigned int> textures;
+
+  //查找当前纹理路径
+  aiString texturePath;
+  aiTextureType type;
+  std::string fullTexturePath;  //储存纹理的路径用于与其它纹理进行比较
+
+  //遍历所有纹理类型
+  for (int tex_index = aiTextureType_NONE; tex_index <= aiTextureType_UNKNOWN; tex_index++)
+  {
+    type = static_cast<aiTextureType>(tex_index); //索引值转换为enum值
+    fullTexturePath = directory;
+
+    //如果有这个纹理
+    if (material->GetTextureCount(type) > 0)
+    {
+      //记录纹理路径 避免多次加载纹理
+      material->GetTexture(type, 0, &texturePath);
+      fullTexturePath = fullTexturePath.append(texturePath.C_Str());
+
+      //如果纹理不存在则加载它
+      //return 成功为1 失败为0
+      if (textureAtlas.count(fullTexturePath) == 0)
+      {
+        Texture texture;
+        bool srgb = false;
+        texture.loadTexture(fullTexturePath, srgb);
+        textureAtlas.insert({ fullTexturePath,texture });
+      }
+
+      textures.push_back(textureAtlas.at(fullTexturePath).textureID);
+    }
+    else
+    {
+      //For now we always assume that these textures will exist in the current
+      //material. If they do not, we assign 0 to their value.
+      //This will be fixed when the new material model is implemented.
+      switch (type)
+      {
+      case aiTextureType_LIGHTMAP:
+      case aiTextureType_EMISSIVE:
+      case aiTextureType_NORMALS:
+      case aiTextureType_UNKNOWN:
+        textures.push_back(0);
+        break;
+      }
+    }
+  }
+  return textures;
+}
+
