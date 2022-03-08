@@ -43,11 +43,19 @@ void Engine::run()
 {
   GLFWwindow* window = gDisplayManager.getGlfwWindow();
 
+
   while (!glfwWindowShouldClose(window))
+  //while(true)
   {
+    
+    //处理所有用户输入
+    gInputManager.processInput(window);
+
     gDisplayManager.bind();
 
-    renderUI();
+
+    //gui测试demo
+    //renderUI();
 
     gDisplayManager.swapDisplayBuffer();
   }

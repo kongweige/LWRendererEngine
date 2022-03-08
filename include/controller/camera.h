@@ -3,6 +3,7 @@
 
 #include "glm/glm.hpp"
 //#include "glm/gtc/matrix_transform.hpp"
+#include <set>
 
 struct Camera
 {
@@ -11,6 +12,12 @@ struct Camera
   {
 
   }
+
+  //通过输入改变相机的矩阵
+  void resetCamera();
+
+  //存储鼠标按键事件
+  std::set<char> activeMoveStates;
 
 };
 
