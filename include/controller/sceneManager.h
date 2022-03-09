@@ -10,9 +10,12 @@ public:
   SceneManager();
   ~SceneManager();
 
-  //Initializes and Closes all sence related stuff
+  //初始化和关闭所有与场景相关的
   bool startUp();
   void shutDown();
+
+  //更新当前场景
+  void update(unsigned int deltaT);
 
 private:
   bool loadScene(std::string sceneID);

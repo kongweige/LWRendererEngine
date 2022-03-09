@@ -28,6 +28,19 @@ Scene::~Scene()
   delete mainCamera;
 }
 
+void Scene::update(unsigned int deltaT)
+{
+  visibleModels.clear();
+  mainCamera->update(deltaT);
+  //灯光更新
+  for (Model* model : modelsInScene)
+  {
+    model->update(deltaT);
+  }
+  //？？
+  frustrumCulling();
+}
+
 //-----------------------------场景加载-----------------------------------
 
 //加载配置文件
@@ -146,4 +159,15 @@ void Scene::loadLights(const json& sceneConfigJson)
 void Scene::generateEnvironmentMaps()
 {
 
+}
+
+//TODO: ??????
+void Scene::frustrumCulling()
+{
+  for (Model* model : modelsInScene) {
+    visibleModels.push_back(model);
+    // bool visible = mainCamera.checkVisibility(model->getBounds());
+    // if (visible) {
+    // }
+  }
 }

@@ -14,6 +14,7 @@ struct Camera
   }
 
   //通过输入改变相机的矩阵
+  void update(unsigned int deltaT);
   void resetCamera();
 
   //存储鼠标按键事件

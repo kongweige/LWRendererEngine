@@ -19,6 +19,12 @@ void Model::loadModel(std::string path)
   }
 }
 
+//TODO: 更新模型
+void Model::update(unsigned int deltaT)
+{
+
+}
+
 void Model::processNode(aiNode* node, const aiScene* scene)
 {
   //处理所有的节点mesh

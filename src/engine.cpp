@@ -42,6 +42,12 @@ void Engine::shutDown()
 void Engine::run()
 {
   GLFWwindow* window = gDisplayManager.getGlfwWindow();
+  
+  //统计渲染性能
+  unsigned int deltaT = glfwGetTime();
+  unsigned int start = 0;
+  unsigned int total = 0;
+  printf("\nEntered Main Loop!\n");
 
 
   while (!glfwWindowShouldClose(window))
@@ -51,13 +57,21 @@ void Engine::run()
     //处理所有用户输入
     gInputManager.processInput(window);
 
+    //更新当前场景中的模型、相机和光照
+    gSceneManager.update(deltaT);
+    
     gDisplayManager.bind();
 
-
+    //渲染
+    
     //gui测试demo
-    //renderUI();
+    renderUI();
 
     gDisplayManager.swapDisplayBuffer();
+
+    //Obtaining deltaT for any 
+    deltaT = glfwGetTime() - start;
+    total += deltaT;
   }
   printf("run\n");
 }

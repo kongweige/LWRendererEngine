@@ -33,8 +33,10 @@ struct Model
     modelMatrix = glm::scale(modelMatrix, initParameters.scaling);
   }
 
+  //基本接口
   void loadModel(std::string path);
-  
+  void update(unsigned int deltaT);
+
   //模型处理和加载功能
   void processNode(aiNode* node, const aiScene* scene);
   Mesh processMesh(aiMesh* mesh, const aiScene* scene);

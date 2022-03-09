@@ -20,6 +20,9 @@ public:
   //用于初始Camera的构造函数
   Camera* mainCamera;
 
+  //更新当前场景
+  void update(unsigned int deltaT);
+
 private:
   //场景加载和地图生成，但并未写到内存中
   bool loadContent();
@@ -29,10 +32,13 @@ private:
   void loadLights(const json& sceneConfigJson);
   void generateEnvironmentMaps();
 
+  //???
+  void frustrumCulling();
+
 private:
   std::string sceneID;
 
-  //Contains the models that remain after frustrum culling which is TB done
+  //包含在完成frustrum剔除后保留的模型
   std::vector<Model*> visibleModels;
   std::vector<Model*> modelsInScene;
 

@@ -18,7 +18,7 @@ void InputManager::processInput(GLFWwindow* window)
 {
   ImGuiIO& io = ImGui::GetIO();
   //检测imgui是否要使用鼠标
-  if (io.WantCaptureKeyboard || io.WantCaptureMouse) 
+  if (io.WantCaptureKeyboard || io.WantCaptureMouse)
   {
     //检测到与GUI交互暂停所有相机移动
 
@@ -33,28 +33,25 @@ void InputManager::processInput(GLFWwindow* window)
 
 void InputManager::handleEvent(GLFWwindow* window)
 {
-  bool isDown = glfwGetKeyScancode(GLFW_PRESS);
-  bool wasDown = glfwGetKey(window, GLFW_RELEASE);
-  std::cout << "------------" << std::endl;
-  std::cout << isDown << std::endl;
-  std::cout << wasDown << std::endl;
-  std::cout << "------------" << std::endl;
+  //int down = glfwGetKey(window, GLFW_PRESS);
+  //int up = glfwGetKey(window, GLFW_KEY_UP);
 
-  //这段代码需要优化 好瓦
-  if (isDown || wasDown)
+  //std::cout << down << std::endl;
+  //std::cout << up << std::endl;
+
+  //TODO: 这段代码需要优化 好瓦
+  if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
   {
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-    {
-      glfwSetWindowShouldClose(window, true);
-      return;
-    }
-    else if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
-    {
-      if (isDown)
-      {
-        sceneCamera->resetCamera();
-      }
-    }
+    glfwSetWindowShouldClose(window, true);
+    return;
+  }
+  else if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
+  {
+
+    sceneCamera->resetCamera();
+  }
+
+  /*
     else if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
     {
       if (isDown)
@@ -99,7 +96,7 @@ void InputManager::handleEvent(GLFWwindow* window)
       if (wasDown)
         sceneCamera->activeMoveStates.erase('e');
     }
-  }
+  }*/
   //else if()
 
 

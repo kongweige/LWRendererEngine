@@ -32,3 +32,8 @@ bool SceneManager::loadScene(std::string sceneID)
   currentScene = new Scene(sceneID);
   return !currentScene->loadingError;
 }
+
+void SceneManager::update(unsigned int deltaT)
+{
+  currentScene->update(deltaT);
+}
