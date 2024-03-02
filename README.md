@@ -1,2 +1,2 @@
 # LWRendererEngine
-用于自学的渲染引擎
+一个轻量级渲染引擎
